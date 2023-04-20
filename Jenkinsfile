@@ -28,6 +28,7 @@ pipeline {
             }
             steps {
                 ctest 'InSearchPath'
+		    sh 'ctest -T test --no-compress-output'
             }
         }
 
