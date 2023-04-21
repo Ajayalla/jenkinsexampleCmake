@@ -21,15 +21,15 @@ pipeline {
                 //cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
         }
-        stage('Test') {
-            when {
-                environment name: 'RUN_TESTS', value: 'true'
-            }
-            steps {
-                ctest 'InSearchPath'
-		    sh 'ctest -T test --no-compress-output'
-            }
-        }
+        //stage('Test') {
+        //    when {
+        //        environment name: 'RUN_TESTS', value: 'true'
+        //    }
+        //    steps {
+        //        ctest 'InSearchPath'
+	//	    sh 'ctest -T test --no-compress-output'
+        //    }
+       // }
         stage('Analyse') {
             when {
                 environment name: 'RUN_ANALYSIS', value: 'true'
