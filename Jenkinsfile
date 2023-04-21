@@ -25,9 +25,9 @@ pipeline {
             when {
                 environment name: 'RUN_TESTS', value: 'true'
             }
-            //steps {
-            //    ctest 'InSearchPath'
-           // }
+            steps {
+                ctest 'InSearchPath'
+            }
         }
         stage('Analyse') {
             when {
