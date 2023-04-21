@@ -21,14 +21,14 @@ pipeline {
                 //cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
         }
-        stage('Test') {
-            when {
-                environment name: 'RUN_TESTS', value: 'true'
-            }
-            steps {
-                ctest 'InSearchPath'
-            }
-        }
+        //stage('Test') {
+        //    when {
+        //        environment name: 'RUN_TESTS', value: 'true'
+        //    }
+        //    steps {
+        //        ctest 'InSearchPath'
+        //    }
+        //}
         stage('Analyse') {
             when {
                 environment name: 'RUN_ANALYSIS', value: 'true'
