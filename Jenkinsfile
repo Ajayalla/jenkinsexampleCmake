@@ -27,8 +27,7 @@ pipeline {
             }
             steps {
                 ctest 'InSearchPath'
-		    //sh 'ctest -T test --no-compress-output'
-		    sh "ctest -T test --rerun-failed --output-on-failure"
+		    sh 'ctest -T test --no-compress-output'
             }
         }
         stage('Analyse') {
