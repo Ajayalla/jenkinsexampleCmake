@@ -14,14 +14,13 @@ pipeline {
 	stages {
         stage('Build') {
             steps {
-		cmakeBuild(
-		  installation: 'InSearchPath'
-                //cmake arguments: '-DCMAKE_TOOLCHAIN_FILE=/home/Admin123/.vcpkg/scripts/buildsystems/vcpkg.cmake', installation: 'InSearchPath'
+                cmakeBuild (
+                    installation: 'InSearchPath'
+                )
+		        //cmake arguments: '-DCMAKE_TOOLCHAIN_FILE=/home/Admin123/.vcpkg/scripts/buildsystems/vcpkg.cmake', installation: 'InSearchPath'
                 //cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
-			)
             }
         }
-
         stage('Test') {
             when {
                 environment name: 'RUN_TESTS', value: 'true'
@@ -31,7 +30,6 @@ pipeline {
 		    sh 'ctest -T test --no-compress-output'
             }
         }
-
         stage('Analyse') {
             when {
                 environment name: 'RUN_ANALYSIS', value: 'true'
