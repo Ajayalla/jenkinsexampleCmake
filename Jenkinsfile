@@ -46,7 +46,7 @@ pipeline {
             }
             steps {
                 sh label: '', returnStatus: true, script: '''cp jenkinsexample ~
-                cp test/testPro ~'''
+                cp -r test/testPro ~'''
             }
         }
 	}
