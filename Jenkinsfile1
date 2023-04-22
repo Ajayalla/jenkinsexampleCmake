@@ -26,8 +26,7 @@ pipeline {
                 environment name: 'RUN_TESTS', value: 'true'
             }
             steps {
-                ctest 'InSearchPath'
-                sh 'ctest -T test --no-compress-output'
+                ctest '/log4cplus/tests'
             }
         }
         stage('Analyse') {
